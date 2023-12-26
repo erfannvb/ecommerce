@@ -13,3 +13,7 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 ]
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
+q
+Asrc/main/java/org/example/ecommerce/base/service/BaseService.java,1\2\125700d33e31dcfec046a880f7f8579fac796217
+z
+Jsrc/main/java/org/example/ecommerce/base/service/impl/BaseServiceImpl.java,7\b\7bec87910cb5749fc93c47c7c67bef0378f6c521
