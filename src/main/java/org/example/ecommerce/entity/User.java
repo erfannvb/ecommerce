@@ -23,8 +23,8 @@ public class User extends BaseEntity<Long> {
     @Column(name = "user_password", length = 100)
     private String userPassword;
 
-    @Column(name = "phone_number", length = 12)
-    private String phoneNumber;
+    @Column(name = "user_phone", length = 12)
+    private String userPhone;
 
     @Column(name = "user_picture", length = 1500)
     private String userPicture;
