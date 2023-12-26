@@ -17,3 +17,11 @@ q
 Asrc/main/java/org/example/ecommerce/base/service/BaseService.java,1\2\125700d33e31dcfec046a880f7f8579fac796217
 z
 Jsrc/main/java/org/example/ecommerce/base/service/impl/BaseServiceImpl.java,7\b\7bec87910cb5749fc93c47c7c67bef0378f6c521
+I
+src/main/webapp/index.jsp,8\e\8e6d3b70c9f5b02570779b0441540d45eceb0ded
+d
+4src/main/java/org/example/ecommerce/entity/User.java,1\f\1f89881940a18c6d2609b9028ef0af292fb683e4
+h
+8src/main/java/org/example/ecommerce/entity/Category.java,0\2\024e7fa647fc6ea026987e5c33e89106e091c28e
+g
+7src/main/java/org/example/ecommerce/entity/Product.java,c\0\c0c8229bca499af988e47a2fd7f8df9127b02f8c
