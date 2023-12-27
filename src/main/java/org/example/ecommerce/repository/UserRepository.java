@@ -7,8 +7,6 @@ import java.util.Optional;
 
 public interface UserRepository extends BaseRepository<Long , User> {
 
-    Optional<User> findUserByEmail(String email);
-
-    Optional<User> findUserByPassword(String password);
+    Optional<User> findUserByEmailAndPassword(String email, String password);
 
 }

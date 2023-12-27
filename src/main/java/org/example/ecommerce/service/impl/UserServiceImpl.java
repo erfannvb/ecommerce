@@ -25,12 +25,7 @@ public class UserServiceImpl extends BaseServiceImpl<Long, User, UserRepository>
     }
 
     @Override
-    public Optional<User> findUserByEmail(String email) {
-        return repository.findUserByEmail(email);
-    }
-
-    @Override
-    public Optional<User> findUserByPassword(String password) {
-        return repository.findUserByPassword(password);
+    public Optional<User> findUserByEmailAndPassword(String email, String password) {
+        return repository.findUserByEmailAndPassword(email, password);
     }
 }

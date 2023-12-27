@@ -8,6 +8,7 @@ import org.example.ecommerce.base.repository.impl.BaseRepositoryImpl;
 import org.example.ecommerce.entity.User;
 import org.example.ecommerce.repository.UserRepository;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import java.util.Optional;
 
@@ -26,26 +27,11 @@ public class UserRepositoryImpl extends BaseRepositoryImpl<Long, User> implement
     }
 
     @Override
-    public Optional<User> findUserByEmail(String email) {
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-
-        CriteriaQuery<User> criteriaQuery = builder.createQuery(User.class);
-        Root<User> userRoot = criteriaQuery.from(User.class);
-        criteriaQuery.where(builder.equal(userRoot.get("userEmail"), email));
-
-        TypedQuery<User> userTypedQuery = session.createQuery(criteriaQuery);
-        return Optional.ofNullable(userTypedQuery.getSingleResult());
-    }
-
-    @Override
-    public Optional<User> findUserByPassword(String password) {
-        CriteriaBuilder builder = session.getCriteriaBuilder();
-
-        CriteriaQuery<User> criteriaQuery = builder.createQuery(User.class);
-        Root<User> userRoot = criteriaQuery.from(User.class);
-        criteriaQuery.where(builder.equal(userRoot.get("userPassword"), password));
-
-        TypedQuery<User> userTypedQuery = session.createQuery(criteriaQuery);
-        return Optional.ofNullable(userTypedQuery.getSingleResult());
+    public Optional<User> findUserByEmailAndPassword(String email, String password) {
+        String hql = "from User where userEmail =: email and userPassword =: password";
+        Query<User> userQuery = session.createQuery(hql, User.class);
+        userQuery.setParameter("email", email);
+        userQuery.setParameter("password", password);
+        return Optional.ofNullable(userQuery.getSingleResult());
     }
 }
