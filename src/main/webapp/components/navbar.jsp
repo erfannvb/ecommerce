@@ -23,10 +23,10 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="login.jsp">Login</a>
+                    <a class="nav-link" aria-current="page" href="/login.jsp">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="register.jsp">Register</a>
+                    <a class="nav-link" aria-current="page" href="/register.jsp">Register</a>
                 </li>
             </ul>
         </div>
