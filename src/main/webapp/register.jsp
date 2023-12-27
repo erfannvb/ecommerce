@@ -15,6 +15,8 @@
     <div class="row mt-2">
         <div class="col-md-4 offset-md-4">
             <div class="card">
+                <jsp:include page="components/ok_message.jsp"/>
+                <jsp:include page="components/error_message.jsp"/>
                 <div class="card-header text-center fs-4">Sign Up</div>
                 <div class="card-body">
                     <form action="registerUser" method="post">
@@ -48,9 +50,6 @@
                             <button type="reset" class="btn btn-outline-danger">Back</button>
                         </div>
                     </form>
-                    <div class="text-center mt-3">
-                        <p style="color: crimson">${error}</p>
-                    </div>
                 </div>
             </div>
         </div>
