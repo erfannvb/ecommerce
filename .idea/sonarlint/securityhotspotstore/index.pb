@@ -25,3 +25,9 @@ h
 8src/main/java/org/example/ecommerce/entity/Category.java,0\2\024e7fa647fc6ea026987e5c33e89106e091c28e
 g
 7src/main/java/org/example/ecommerce/entity/Product.java,c\0\c0c8229bca499af988e47a2fd7f8df9127b02f8c
+I
+src/main/webapp/about.jsp,9\c\9cfad79fedc294aa80b61650cbdd6365fe3bda92
+M
+src/main/webapp/css/style.css,2\c\2c1f525046eaa5ad3e39cc3d3b2f4c4fab4ff318
+\
+,src/main/webapp/components/common_css_js.jsp,c\2\c2e831f249bca54cac003c8626665ae1c3f45935
