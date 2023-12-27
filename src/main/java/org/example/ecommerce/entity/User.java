@@ -26,10 +26,10 @@ public class User extends BaseEntity<Long> {
     @Column(name = "user_phone", length = 12)
     private String userPhone;
 
-    @Column(name = "user_picture", length = 1500)
-    private String userPicture;
-
     @Column(name = "user_address", length = 1500)
     private String userAddress;
+
+    @Column(name = "user_type")
+    private String userType;
 
 }
