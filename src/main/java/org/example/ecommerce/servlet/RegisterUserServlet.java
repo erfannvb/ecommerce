@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.example.ecommerce.base.repository.util.HibernateUtil;
 import org.example.ecommerce.entity.User;
 import org.example.ecommerce.repository.UserRepository;
@@ -43,9 +44,9 @@ public class RegisterUserServlet extends HttpServlet {
             User user = new User(username, email, password, phone, address, "Normal");
             userService.addUser(user);
 
-            resp.setContentType("text/html");
-            PrintWriter writer = resp.getWriter();
-            writer.println("<h2>User Added Successfully!!!</h2>");
+            HttpSession httpSession = req.getSession();
+            httpSession.setAttribute("message", username + " added successfully!");
+            resp.sendRedirect("/register.jsp");
 
         } catch (Exception e) {
             e.getStackTrace();

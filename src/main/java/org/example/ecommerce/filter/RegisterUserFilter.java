@@ -4,6 +4,7 @@ import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.example.ecommerce.base.repository.util.HibernateUtil;
 import org.example.ecommerce.entity.User;
 import org.example.ecommerce.repository.UserRepository;
@@ -13,7 +14,6 @@ import org.example.ecommerce.service.impl.UserServiceImpl;
 import org.hibernate.Session;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,29 +37,37 @@ public class RegisterUserFilter implements Filter {
         String username = request.getParameter("username");
         String email = request.getParameter("email");
 
+        boolean usernameExists = false;
+        boolean emailExists = false;
+
+        HttpSession httpSession = request.getSession();
+
         StringBuilder error = new StringBuilder();
 
         List<User> userList = new ArrayList<>(userService.findAll());
-        if (!userList.isEmpty()) {
-            for (User user : userList) {
-                if (user.getUsername().equals(username)) {
-                    error.append("User with this username already exists!");
-                    request.setAttribute(ERROR, error);
-                    RequestDispatcher dispatcher = request.getRequestDispatcher(REGISTER_URL);
-                    dispatcher.forward(request, response);
-                } else if (user.getUserEmail().equals(email)) {
-                    error.append("Email is already taken!");
-                    request.setAttribute(ERROR, error);
-                    RequestDispatcher dispatcher = request.getRequestDispatcher(REGISTER_URL);
-                    dispatcher.forward(request, response);
-                } else {
-                    filterChain.doFilter(request, response);
-                }
+        for (User user : userList) {
+            if (user.getUsername().equals(username)) {
+                usernameExists = true;
+                break;
+            } else if (user.getUserEmail().equals(email)) {
+                emailExists = true;
+                break;
             }
+        }
+
+        if (usernameExists) {
+            error.append("User with this username already exists!");
+            httpSession.setAttribute(ERROR, error.toString());
+            RequestDispatcher dispatcher = request.getRequestDispatcher(REGISTER_URL);
+            dispatcher.include(request, response);
+        } else if (emailExists) {
+            error.append("Email already taken!");
+            httpSession.setAttribute(ERROR, error.toString());
+            RequestDispatcher dispatcher = request.getRequestDispatcher(REGISTER_URL);
+            dispatcher.include(request, response);
         } else {
             filterChain.doFilter(request, response);
         }
-
 
     }
 }
