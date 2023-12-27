@@ -31,3 +31,21 @@ M
 src/main/webapp/css/style.css,2\c\2c1f525046eaa5ad3e39cc3d3b2f4c4fab4ff318
 \
 ,src/main/webapp/components/common_css_js.jsp,c\2\c2e831f249bca54cac003c8626665ae1c3f45935
+L
+src/main/webapp/js/script.js,a\4\a48403258fe4818219eb066d53485a1f30081afd
+U
+%src/main/webapp/components/navbar.jsp,c\9\c92a415dda6037329095cd46457b4ddd6d717a63
+L
+src/main/webapp/register.jsp,b\d\bde35d3876092f82f8efadc1a6675aaf6bd96946
+r
+Bsrc/main/java/org/example/ecommerce/repository/UserRepository.java,a\1\a1a54e70eea84906bcce908a8baba212dabedea3
+v
+Fsrc/main/java/org/example/ecommerce/repository/CategoryRepository.java,d\6\d6c2228f528c90c35dd199e11f197f9e9ea4bba0
+u
+Esrc/main/java/org/example/ecommerce/repository/ProductRepository.java,4\b\4bfc7c9c203de99ec515c77e31825538ffe2428d
+{
+Ksrc/main/java/org/example/ecommerce/repository/impl/UserRepositoryImpl.java,5\f\5f89db564f8f6790e21df9dc5a70eab1cc756e73
+~
+Nsrc/main/java/org/example/ecommerce/repository/impl/ProductRepositoryImpl.java,9\7\9770e2fd4dd81b06dcba00ec7cb1530d2d3285f9
+
+Osrc/main/java/org/example/ecommerce/repository/impl/CategoryRepositoryImpl.java,3\e\3e1a45c886bdaf1b2ff4d0f62e14750ed3158e24
