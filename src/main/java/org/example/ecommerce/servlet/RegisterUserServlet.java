@@ -15,7 +15,6 @@ import org.example.ecommerce.service.impl.UserServiceImpl;
 import org.hibernate.Session;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet(name = "RegisterUserServlet", urlPatterns = "/registerUser")
 public class RegisterUserServlet extends HttpServlet {
