@@ -15,6 +15,7 @@
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="card mt-3">
+                <jsp:include page="components/error_message.jsp"/>
                 <div class="card-header text-center fs-4 custom-bg text-white"><h3>Login</h3></div>
                 <div class="card-body">
                     <form action="loginUser" method="post">
