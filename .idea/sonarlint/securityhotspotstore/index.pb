@@ -65,9 +65,13 @@ r
 Bsrc/main/java/org/example/ecommerce/filter/RegisterUserFilter.java,9\6\96ce6ebc4cef42608d7fc0f21a5270e1979f9937
 t
 Dsrc/main/java/org/example/ecommerce/servlet/RegisterUserServlet.java,2\a\2ae9a396d2ae3e4f437a4f52ff9c11dceccf848a
-V
-&src/main/webapp/components/message.jsp,4\b\4b0e204594599132d584bace0a48ce0bf02096d2
 \
 ,src/main/webapp/components/error_message.jsp,c\d\cd9bbd922e600ae6669ccbf92ff473be90525c92
 Y
 )src/main/webapp/components/ok_message.jsp,b\b\bbcb7ab8d563a7c96752825ef17dd59a02d52af7
+I
+src/main/webapp/login.jsp,8\5\85ee523d01e5e19376db640e846c91bbcb0a1c22
+q
+Asrc/main/java/org/example/ecommerce/servlet/LoginUserServlet.java,a\b\abb78a0327ebbf76d4c2aedd8f6ff1c9995723f8
+o
+?src/main/java/org/example/ecommerce/filter/LoginUserFilter.java,2\9\2932e8be29e35cafab1f866633cf2b968a49f8f2

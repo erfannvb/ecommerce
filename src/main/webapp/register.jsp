@@ -12,12 +12,12 @@
 <jsp:include page="components/navbar.jsp"/>
 
 <div class="container-fluid">
-    <div class="row mt-2">
+    <div class="row">
         <div class="col-md-4 offset-md-4">
-            <div class="card">
+            <div class="card mt-3">
                 <jsp:include page="components/ok_message.jsp"/>
                 <jsp:include page="components/error_message.jsp"/>
-                <div class="card-header text-center fs-4">Sign Up</div>
+                <div class="card-header text-center fs-4"><h3>Sign Up</h3></div>
                 <div class="card-body">
                     <form action="registerUser" method="post">
                         <div class="mb-3">
