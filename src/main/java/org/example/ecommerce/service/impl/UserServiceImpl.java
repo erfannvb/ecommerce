@@ -8,10 +8,17 @@ import org.hibernate.Session;
 
 public class UserServiceImpl extends BaseServiceImpl<Long, User, UserRepository> implements UserService {
 
-    protected  final Session session;
+    protected final Session session;
 
     public UserServiceImpl(Session session, UserRepository repository) {
         super(session, repository);
         this.session = session;
+    }
+
+    @Override
+    public void addUser(User user) {
+        session.beginTransaction();
+        repository.save(user);
+        session.getTransaction().commit();
     }
 }
