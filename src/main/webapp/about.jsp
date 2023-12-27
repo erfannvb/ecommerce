@@ -9,6 +9,7 @@
 </head>
 <body>
 
+<jsp:include page="components/navbar.jsp"/>
 
 </body>
 </html>
