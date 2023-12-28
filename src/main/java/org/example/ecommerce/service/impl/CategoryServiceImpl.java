@@ -6,6 +6,8 @@ import org.example.ecommerce.repository.CategoryRepository;
 import org.example.ecommerce.service.CategoryService;
 import org.hibernate.Session;
 
+import java.util.List;
+
 public class CategoryServiceImpl extends BaseServiceImpl<Long, Category, CategoryRepository>
         implements CategoryService {
 
@@ -21,5 +23,10 @@ public class CategoryServiceImpl extends BaseServiceImpl<Long, Category, Categor
         session.getTransaction().begin();
         repository.save(category);
         session.getTransaction().commit();
+    }
+
+    @Override
+    public List<Category> getAllCategories() {
+        return repository.getAllCategories();
     }
 }
