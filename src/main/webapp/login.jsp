@@ -31,7 +31,7 @@
                         </div>
                         <div class="container text-center">
                             <button type="submit" class="btn btn-primary">Login</button>
-                            <button type="reset" class="btn btn-danger">Back</button>
+                            <button type="reset" class="btn btn-danger">Reset</button>
                         </div>
                         <div class="mt-3 text-center">
                             <p>Not a member? <a href="register.jsp">Sign Up</a></p>
