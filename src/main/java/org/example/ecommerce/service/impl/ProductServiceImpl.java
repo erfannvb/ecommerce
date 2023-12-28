@@ -14,4 +14,11 @@ public class ProductServiceImpl extends BaseServiceImpl<Long, Product, ProductRe
         super(session, repository);
         this.session = session;
     }
+
+    @Override
+    public void addProduct(Product product) {
+        session.getTransaction().begin();
+        repository.save(product);
+        session.getTransaction().commit();
+    }
 }
