@@ -29,6 +29,11 @@
 <jsp:include page="components/navbar.jsp"/>
 
 <div class="container admin">
+
+    <div class="container-fluid mt-3">
+        <jsp:include page="components/ok_message.jsp"/>
+    </div>
+
     <div class="row mt-3">
 
         <div class="col-md-4">
@@ -107,7 +112,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body p-3">
-                <form action="#">
+                <form action="operation" method="post">
+                    <input type="hidden" name="operation" value="addCategory">
                     <div class="mb-3">
                         <label for="categoryTitle" class="form-label">Category Title</label>
                         <input type="text" class="form-control" id="categoryTitle" name="categoryTitle"
@@ -118,11 +124,11 @@
                         <textarea style="height: 150px" class="form-control" id="categoryDesc" name="categoryDesc"
                                   placeholder="Enter the category description..." required></textarea>
                     </div>
+                    <div class="container text-center">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Add Category</button>
+                    </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-success">Add Category</button>
             </div>
         </div>
     </div>
