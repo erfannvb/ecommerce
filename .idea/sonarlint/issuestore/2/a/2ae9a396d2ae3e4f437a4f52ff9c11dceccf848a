@@ -1,0 +1,9 @@
+
+x
+java:S1450"VRemove the "session" field and declare it as a local variable in the relevant methods.(ÔÂòáÿÿÿÿÿ8‹ƒ×Ê1
+z
+java:S1450"]Remove the "userRepository" field and declare it as a local variable in the relevant methods.(×Š¾8‹ƒ×Ê1
+M
+java:S1948"0Make "userRepository" transient or serializable.(×Š¾8‚‹ƒ×Ê1
+O
+java:S1948"-Make "userService" transient or serializable.(¶òÁÈùÿÿÿÿ8‚‹ƒ×Ê1
