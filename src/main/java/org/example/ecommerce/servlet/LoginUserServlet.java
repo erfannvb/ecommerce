@@ -15,7 +15,7 @@ public class LoginUserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        HttpSession httpSession = req.getSession(false);
+        HttpSession httpSession = req.getSession();
         User currentUser = (User) httpSession.getAttribute("currentUser");
 
         // Check if the logged-in user is amin or normal user

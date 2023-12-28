@@ -79,3 +79,5 @@ I
 src/main/webapp/admin.jsp,1\6\16c841072742f24edfb63d62f4da7ea207d6a9cd
 N
 src/main/webapp/normalUser.jsp,3\2\3219620a86b78fbcbac2898db00a9d3f6aaf4749
+r
+Bsrc/main/java/org/example/ecommerce/servlet/LogoutUserServlet.java,3\f\3f6f58856b9fbf0f10ba1e489e7e03a35c0ca38b
