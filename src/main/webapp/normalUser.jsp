@@ -9,7 +9,6 @@
 </head>
 <body>
 
-<jsp:include page="components/navbar.jsp"/>
 
 <h1>This is the normal user page</h1>
 
