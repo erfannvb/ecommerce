@@ -15,4 +15,11 @@ public class CategoryServiceImpl extends BaseServiceImpl<Long, Category, Categor
         super(session, repository);
         this.session = session;
     }
+
+    @Override
+    public void addCategory(Category category) {
+        session.getTransaction().begin();
+        repository.save(category);
+        session.getTransaction().commit();
+    }
 }

@@ -193,3 +193,5 @@ G.idea/sonarlint/issuestore/4/b/4bfc7c9c203de99ec515c77e31825538ffe2428d,c\a\ca
 Q.idea/sonarlint/securityhotspotstore/a/1/a1a54e70eea84906bcce908a8baba212dabedea3,9\7\97bbf75246a6cbd5683b842dc27499312e16fd56
 Å
 Q.idea/sonarlint/securityhotspotstore/3/e/3e1a45c886bdaf1b2ff4d0f62e14750ed3158e24,f\5\f54c0c9e64ff41456ea055557b7edf54f9d2aadf
+q
+Asrc/main/java/org/example/ecommerce/servlet/OperationServlet.java,b\a\ba1f6da22d25c44e84be53ab5533facc8ced0791
