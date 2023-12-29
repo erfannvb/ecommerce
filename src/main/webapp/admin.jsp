@@ -158,7 +158,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="operation" method="post">
+                <form action="operation" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="operation" value="addProduct">
                     <div class="mb-3">
                         <label for="productTitle" class="form-label">Product Title</label>
