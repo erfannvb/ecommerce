@@ -46,6 +46,8 @@ public class OperationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        HttpSession httpSession = req.getSession();
+
         String operation = req.getParameter("operation");
 
         if (operation.trim().equals("addCategory")) {
@@ -59,7 +61,6 @@ public class OperationServlet extends HttpServlet {
 
             categoryService.save(category);
 
-            HttpSession httpSession = req.getSession();
             httpSession.setAttribute("message", "Category Added Successfully!");
             resp.sendRedirect("/admin.jsp");
 
@@ -86,8 +87,9 @@ public class OperationServlet extends HttpServlet {
             product.setCategory(categoryByTitle);
 
             productService.addProduct(product);
-            resp.setContentType("text/html");
-            resp.getWriter().println("<h2>Product Saved Successfully!</h2>");
+
+            httpSession.setAttribute("message", "Product Added Successfully!");
+            resp.sendRedirect("/admin.jsp");
 
         }
 
