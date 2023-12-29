@@ -11,4 +11,6 @@ public interface CategoryService extends BaseService<Long, Category> {
 
     List<Category> getAllCategories();
 
+    Category getCategoryByTitle(String title);
+
 }
