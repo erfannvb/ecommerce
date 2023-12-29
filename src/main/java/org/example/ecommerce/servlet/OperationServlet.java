@@ -18,7 +18,6 @@ import org.example.ecommerce.service.impl.ProductServiceImpl;
 import org.hibernate.Session;
 
 import java.io.IOException;
-import java.util.Optional;
 
 @WebServlet(name = "OperationServlet", urlPatterns = "/operation")
 @MultipartConfig
