@@ -1,0 +1,15 @@
+
+ƒ
+java:S1450"aRemove the "categoryRepository" field and declare it as a local variable in the relevant methods.(ÃØÀÒşÿÿÿÿ8ˆûÊË1
+‚
+java:S1450""`Remove the "productRepository" field and declare it as a local variable in the relevant methods.(ÆÁáıÿÿÿÿ8ˆûÊË1
+x
+java:S1450"VRemove the "session" field and declare it as a local variable in the relevant methods.(ÔÂòáÿÿÿÿÿ8‰ûÊË1
+V
+java:S1948"4Make "categoryRepository" transient or serializable.(ÃØÀÒşÿÿÿÿ8‰ûÊË1
+N
+java:S1948 "1Make "categoryService" transient or serializable.(’¤ï8‰ûÊË1
+U
+java:S1948""3Make "productRepository" transient or serializable.(ÆÁáıÿÿÿÿ8‰ûÊË1
+M
+java:S1948#"0Make "productService" transient or serializable.(³’é…8‰ûÊË1
