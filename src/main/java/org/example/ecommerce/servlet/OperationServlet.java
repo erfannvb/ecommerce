@@ -99,7 +99,11 @@ public class OperationServlet extends HttpServlet {
                 InputStream productPhotoInputStream = productPhoto.getInputStream();
                 byte[] data = new byte[productPhotoInputStream.available()];
 
-                fileOutputStream.write(data);
+                int bytesRead;
+                while ((bytesRead = productPhotoInputStream.read(data)) != -1) {
+                    fileOutputStream.write(data, 0, bytesRead);
+                }
+
                 fileOutputStream.close();
 
             } catch (IOException e) {
