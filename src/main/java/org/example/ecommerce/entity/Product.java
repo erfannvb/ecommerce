@@ -31,7 +31,7 @@ public class Product extends BaseEntity<Long> {
     private double productPrice;
 
     @Column(name = "product_discount")
-    private double productDiscount;
+    private int productDiscount;
 
     @Column(name = "product_quantity")
     private int productQuantity;
