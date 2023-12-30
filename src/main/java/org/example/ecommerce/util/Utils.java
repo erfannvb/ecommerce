@@ -11,7 +11,7 @@ public class Utils {
         if (strs.length > 10) {
             StringBuilder res = new StringBuilder();
             for (int i = 0; i < 10; i++) {
-                res.append(strs[i]);
+                res.append(" ").append(strs[i]);
             }
             return (res + "...");
         } else {
