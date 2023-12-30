@@ -72,7 +72,7 @@ public class OperationServlet extends HttpServlet {
             String productDesc = req.getParameter("productDesc");
             Part productPhoto = req.getPart("productPhoto");
             double productPrice = Double.parseDouble(req.getParameter("productPrice"));
-            double productDiscount = Double.parseDouble(req.getParameter("productDiscount"));
+            int productDiscount = Integer.parseInt(req.getParameter("productDiscount"));
             int productQuantity = Integer.parseInt(req.getParameter("productQuantity"));
             String category = req.getParameter("category");
 
