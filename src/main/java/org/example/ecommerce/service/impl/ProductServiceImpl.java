@@ -6,6 +6,8 @@ import org.example.ecommerce.repository.ProductRepository;
 import org.example.ecommerce.service.ProductService;
 import org.hibernate.Session;
 
+import java.util.List;
+
 public class ProductServiceImpl extends BaseServiceImpl<Long, Product, ProductRepository> implements ProductService {
 
     protected final Session session;
@@ -20,5 +22,10 @@ public class ProductServiceImpl extends BaseServiceImpl<Long, Product, ProductRe
         session.getTransaction().begin();
         repository.save(product);
         session.getTransaction().commit();
+    }
+
+    @Override
+    public List<Product> getAllProductByCategoryId(long id) {
+        return repository.getAllProductByCategoryId(id);
     }
 }
