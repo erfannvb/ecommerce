@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="org.hibernate.Session" %>
 <%@ page import="org.example.ecommerce.base.repository.util.HibernateUtil" %>
 <%@ page import="org.example.ecommerce.repository.ProductRepository" %>
@@ -31,6 +32,9 @@
     <div class="row mt-3 mx-2">
 
         <%
+
+            String category = request.getParameter("category");
+
             try {
 
                 Session s = HibernateUtil.getSessionFactory().openSession();
@@ -38,7 +42,14 @@
                 ProductRepository productRepository = new ProductRepositoryImpl(s);
                 ProductService productService = new ProductServiceImpl(s, productRepository);
 
-                List<Product> productList = new ArrayList<>(productService.findAll());
+                List<Product> productList;
+                if (category.trim().equals("all")) {
+                    productList = new ArrayList<>(productService.findAll());
+                } else {
+                    long categoryId = Long.parseLong(category.trim());
+                    productList = productService.getAllProductByCategoryId(categoryId);
+                }
+
                 request.setAttribute("productList", productList);
 
                 CategoryRepository categoryRepository = new CategoryRepositoryImpl(s);
@@ -56,18 +67,20 @@
         <div class="col-md-2">
 
             <div class="list-group mt-4">
-                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                <a href="index.jsp?category=all"
+                   class="list-group-item list-group-item-action active" aria-current="true">
                     All Products
                 </a>
                 <c:forEach items="${categoryList}" var="category">
-                    <a href="#" class="list-group-item list-group-item-action">${category.categoryTitle}</a>
+                    <a href="index.jsp?category=${category.id}"
+                       class="list-group-item list-group-item-action">${category.categoryTitle}</a>
                 </c:forEach>
             </div>
 
         </div>
 
         <%--Show Products--%>
-        <div class="col-md-8">
+        <div class="col-md-10">
 
             <div class="row mt-4">
 
@@ -76,11 +89,11 @@
                     <div class="row row-cols-1 row-cols-md-2 g-4">
                         <c:forEach items="${productList}" var="product">
                             <div class="col">
-                                <div class="card">
+                                <div class="card product-card">
                                     <div class="container text-center">
                                         <img src="img/products/${product.productPhoto}"
                                              style="max-height: 150px; max-width: 100%; width: auto"
-                                             class="card-img-top m2" alt="${product.productTitle}">
+                                             class="card-img-top m-2" alt="${product.productTitle}">
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title">${product.productTitle}</h5>
@@ -88,15 +101,25 @@
                                                 ${Utils.getLessDescription(product.productDesc)}
                                         </p>
                                     </div>
-                                    <div class="card-footer">
-                                        <button class="btn custom-bg text-white">Add to Cart</button>
+                                    <div class="card-footer text-center">
+                                        <button class="btn custom-bg text-white"
+                                                onclick="addToCart(${product.id}, '${product.productTitle}', ${Utils.getPriceAfterApplyingDiscount(product.productPrice, product.productDiscount)})">
+                                            Add to Cart
+                                        </button>
                                         <button class="btn btn-outline-primary">
-                                            &dollar;${product.productPrice}
+                                            <fmt:formatNumber type="currency"
+                                                              value="${Utils.getPriceAfterApplyingDiscount(product.productPrice, product.productDiscount)}"/>
+                                            <span class="text-secondary discount-label"><fmt:formatNumber
+                                                    type="currency"
+                                                    value="${product.productPrice}"/> ${product.productDiscount}% off</span>
                                         </button>
                                     </div>
                                 </div>
                             </div>
                         </c:forEach>
+                        <c:if test="${productList.size() == 0}">
+                            <h3>No item in this category.</h3>
+                        </c:if>
                     </div>
 
                 </div>
