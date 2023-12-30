@@ -20,4 +20,9 @@ public class Utils {
 
     }
 
+    public static double getPriceAfterApplyingDiscount(double price, int discount) {
+        double calculatedDiscount = (((double) discount / 100) * price);
+        return price - calculatedDiscount;
+    }
+
 }
