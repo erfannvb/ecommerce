@@ -9,8 +9,6 @@ public interface CategoryService extends BaseService<Long, Category> {
 
     void addCategory(Category category);
 
-    List<Category> getAllCategories();
-
     Category getCategoryByTitle(String title);
 
 }

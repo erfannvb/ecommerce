@@ -27,13 +27,6 @@ public class CategoryRepositoryImpl extends BaseRepositoryImpl<Long, Category> i
     }
 
     @Override
-    public List<Category> getAllCategories() {
-        String hql = "from Category";
-        Query<Category> categoryQuery = session.createQuery(hql, Category.class);
-        return categoryQuery.getResultList();
-    }
-
-    @Override
     public Category getCategoryByTitle(String title) {
         CriteriaBuilder builder = session.getCriteriaBuilder();
 

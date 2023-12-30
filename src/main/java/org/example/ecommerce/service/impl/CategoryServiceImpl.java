@@ -26,11 +26,6 @@ public class CategoryServiceImpl extends BaseServiceImpl<Long, Category, Categor
     }
 
     @Override
-    public List<Category> getAllCategories() {
-        return repository.getAllCategories();
-    }
-
-    @Override
     public Category getCategoryByTitle(String title) {
         return repository.getCategoryByTitle(title);
     }

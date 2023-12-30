@@ -7,8 +7,6 @@ import java.util.List;
 
 public interface CategoryRepository extends BaseRepository<Long, Category> {
 
-    List<Category> getAllCategories();
-
     Category getCategoryByTitle(String title);
 
 }
