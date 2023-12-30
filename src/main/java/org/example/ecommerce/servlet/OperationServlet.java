@@ -17,7 +17,10 @@ import org.example.ecommerce.service.impl.CategoryServiceImpl;
 import org.example.ecommerce.service.impl.ProductServiceImpl;
 import org.hibernate.Session;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 @WebServlet(name = "OperationServlet", urlPatterns = "/operation")
 @MultipartConfig
@@ -86,6 +89,22 @@ public class OperationServlet extends HttpServlet {
             product.setCategory(categoryByTitle);
 
             productService.addProduct(product);
+
+            String path = getServletContext().getRealPath("img") +
+                    File.separator + "products" + File.separator + productPhoto.getSubmittedFileName();
+            try {
+
+                FileOutputStream fileOutputStream = new FileOutputStream(path);
+
+                InputStream productPhotoInputStream = productPhoto.getInputStream();
+                byte[] data = new byte[productPhotoInputStream.available()];
+
+                fileOutputStream.write(data);
+                fileOutputStream.close();
+
+            } catch (IOException e) {
+                throw new IllegalArgumentException(e);
+            }
 
             httpSession.setAttribute("message", "Product Added Successfully!");
             resp.sendRedirect("/admin.jsp");
