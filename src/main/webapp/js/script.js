@@ -3,7 +3,7 @@ function addToCart(pId, pTitle, pPrice) {
     let cart = localStorage.getItem("cart");
     if (cart == null) {
 
-        let products = [];
+        let productsArray = [];
 
         let productObj = {
             productId: pId,
@@ -12,9 +12,9 @@ function addToCart(pId, pTitle, pPrice) {
             productQuantity: 1
         }
 
-        products.push(productObj);
+        productsArray.push(productObj);
 
-        localStorage.setItem("cart", JSON.stringify(products));
+        localStorage.setItem("cart", JSON.stringify(productsArray));
 
     }
 
