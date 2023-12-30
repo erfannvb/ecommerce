@@ -7,6 +7,7 @@
 <%@ page import="org.example.ecommerce.service.impl.CategoryServiceImpl" %>
 <%@ page import="org.example.ecommerce.entity.Category" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%
 
     User currentUser = (User) session.getAttribute("currentUser");
@@ -197,7 +198,7 @@
                             CategoryRepository categoryRepository = new CategoryRepositoryImpl(s);
                             CategoryService categoryService = new CategoryServiceImpl(s, categoryRepository);
 
-                            List<Category> categoryList = categoryService.getAllCategories();
+                            List<Category> categoryList = new ArrayList<>(categoryService.findAll());
                             session.setAttribute("categoryList", categoryList);
 
                         } catch (Exception e) {
