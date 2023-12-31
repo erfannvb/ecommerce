@@ -8,6 +8,15 @@
 <%@ page import="org.example.ecommerce.entity.Category" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="org.example.ecommerce.repository.UserRepository" %>
+<%@ page import="org.example.ecommerce.repository.impl.UserRepositoryImpl" %>
+<%@ page import="org.example.ecommerce.service.UserService" %>
+<%@ page import="org.example.ecommerce.service.impl.UserServiceImpl" %>
+<%@ page import="org.example.ecommerce.repository.ProductRepository" %>
+<%@ page import="org.example.ecommerce.repository.impl.ProductRepositoryImpl" %>
+<%@ page import="org.example.ecommerce.service.ProductService" %>
+<%@ page import="org.example.ecommerce.service.impl.ProductServiceImpl" %>
+<%@ page import="org.example.ecommerce.entity.Product" %>
 <%
 
     User currentUser = (User) session.getAttribute("currentUser");
@@ -24,6 +33,35 @@
     }
 
 %>
+
+<%
+    try {
+
+        Session s = HibernateUtil.getSessionFactory().openSession();
+
+        CategoryRepository categoryRepository = new CategoryRepositoryImpl(s);
+        CategoryService categoryService = new CategoryServiceImpl(s, categoryRepository);
+
+        List<Category> categoryList = new ArrayList<>(categoryService.findAll());
+        session.setAttribute("categoryList", categoryList);
+
+        UserRepository userRepository = new UserRepositoryImpl(s);
+        UserService userService = new UserServiceImpl(s, userRepository);
+
+        List<User> userList = new ArrayList<>(userService.findAll());
+        session.setAttribute("userList", userList);
+
+        ProductRepository productRepository = new ProductRepositoryImpl(s);
+        ProductService productService = new ProductServiceImpl(s, productRepository);
+
+        List<Product> productList = new ArrayList<>(productService.findAll());
+        session.setAttribute("productList", productList);
+
+    } catch (Exception e) {
+        e.getStackTrace();
+    }
+%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
@@ -52,7 +90,7 @@
                     <div class="container mb-3">
                         <img src="img/users.png" alt="Users" class="img-fluid rounded" style="max-width: 100px">
                     </div>
-                    <h2>512</h2>
+                    <h2>${userList.size()}</h2>
                     <h2 class="text-muted">Users</h2>
                 </div>
             </div>
@@ -64,7 +102,7 @@
                     <div class="container mb-3">
                         <img src="img/list.png" alt="Users" class="img-fluid rounded" style="max-width: 100px">
                     </div>
-                    <h2>512</h2>
+                    <h2>${categoryList.size()}</h2>
                     <h2 class="text-muted">Categories</h2>
                 </div>
             </div>
@@ -76,7 +114,7 @@
                     <div class="container mb-3">
                         <img src="img/product.png" alt="Users" class="img-fluid rounded" style="max-width: 100px">
                     </div>
-                    <h2>512</h2>
+                    <h2>${productList.size()}</h2>
                     <h2 class="text-muted">Products</h2>
                 </div>
             </div>
@@ -191,20 +229,6 @@
                                placeholder="Enter the product quantity..." required>
                     </div>
                     <hr>
-                    <%
-                        try {
-
-                            Session s = HibernateUtil.getSessionFactory().openSession();
-                            CategoryRepository categoryRepository = new CategoryRepositoryImpl(s);
-                            CategoryService categoryService = new CategoryServiceImpl(s, categoryRepository);
-
-                            List<Category> categoryList = new ArrayList<>(categoryService.findAll());
-                            session.setAttribute("categoryList", categoryList);
-
-                        } catch (Exception e) {
-                            e.getStackTrace();
-                        }
-                    %>
                     <div class="mb-3">
                         <label for="category" class="form-label">Category</label>
                         <select class="form-select" id="category" name="category">
@@ -232,6 +256,8 @@
 </div>
 
 <%--End of Product Modal--%>
+
+<jsp:include page="components/common_modals.jsp"/>
 
 </body>
 </html>
