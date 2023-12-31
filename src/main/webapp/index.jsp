@@ -131,5 +131,7 @@
     </div>
 </div>
 
+<jsp:include page="components/common_modals.jsp"/>
+
 </body>
 </html>
