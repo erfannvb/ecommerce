@@ -17,7 +17,7 @@ function addToCart(pId, pTitle, pPrice) {
 
         localStorage.setItem("cart", JSON.stringify(productsArray));
 
-        console.log("Product added for the first time.");
+        console.log("Product is added for the first time.");
 
     } else {
 
@@ -59,4 +59,64 @@ function addToCart(pId, pTitle, pPrice) {
 
     }
 
+    updateCart();
+
 }
+
+function updateCart() {
+
+    let cartString = localStorage.getItem("cart");
+    let cart = JSON.parse(cartString);
+
+    if (cart == null || cart.length === 0) {
+        console.log("Cart is empty");
+        $(".cart-items").html("( 0 )");
+        $(".cart-body").html("<h3>There is no item in your cart.</h3>");
+        $(".checkout-btn").addClass("disabled");
+    } else {
+        console.log(cart);
+        $(".cart-items").html(`( ${cart.length} )`);
+        let table = `
+            <table class="table table-bordered table-striped table-hover">
+                <tr>
+                    <th>Item Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
+                    <th>Action</th>
+                </tr>
+        `;
+
+        let totalPrice = 0;
+        cart.map((item) => {
+            table += `
+                <tr>
+                    <td>${item.productTitle}</td>
+                    <td>${item.productPrice}</td>
+                    <td>${item.productQuantity}</td>
+                    <td>${item.productQuantity * item.productPrice}</td>
+                    <td><button class="btn btn-danger btn-sm">Remove</button></td>
+            `;
+            totalPrice += item.productQuantity * item.productPrice;
+        });
+        table += `
+            <tr><td colspan="5" style="font-weight: bold; text-align: right">Total Price : ${totalPrice}</td></tr>
+        </tr>`;
+        table += "</table>";
+        $(".cart-body").html(table);
+    }
+}
+
+$(document).ready(() => {
+    updateCart();
+})
+
+
+
+
+
+
+
+
+
+
