@@ -88,6 +88,7 @@ function updateCart() {
         `;
 
         let totalPrice = 0;
+
         cart.map((item) => {
             table += `
                 <tr>
@@ -95,16 +96,29 @@ function updateCart() {
                     <td>${item.productPrice}</td>
                     <td>${item.productQuantity}</td>
                     <td>${item.productQuantity * item.productPrice}</td>
-                    <td><button class="btn btn-danger btn-sm">Remove</button></td>
+                    <td class="text-center"><button onclick="deleteItemFromCart(${item.productId})"
+                     class="btn btn-danger btn-sm">Remove</button></td>
             `;
             totalPrice += item.productQuantity * item.productPrice;
         });
         table += `
-            <tr><td colspan="5" style="font-weight: bold; text-align: right">Total Price : ${totalPrice}</td></tr>
-        </tr>`;
-        table += "</table>";
+                <tr><td colspan="5" style="font-weight: bold; text-align: right">Total Price : ${totalPrice}</td></tr>
+            </tr>
+        </table>`;
         $(".cart-body").html(table);
     }
+}
+
+function deleteItemFromCart(pId) {
+
+    let cart = JSON.parse(localStorage.getItem("cart"));
+
+    let newCart = cart.filter((item) => item.productId !== pId);
+
+    localStorage.setItem("cart", JSON.stringify(newCart));
+
+    updateCart();
+
 }
 
 $(document).ready(() => {
