@@ -54,7 +54,8 @@
                 %>
 
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#!">
+                    <a class="nav-link" aria-current="page"
+                       href="<%= user.getUserType().equals("admin") ? "admin.jsp" : "normalUser.jsp" %>">
                         <%= user.getUsername() %>
                     </a>
                 </li>

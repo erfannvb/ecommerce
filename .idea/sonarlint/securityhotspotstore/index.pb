@@ -431,3 +431,5 @@ O
 src/main/webapp/WEB-INF/web.xml,2\e\2e22b6edd746fa3dc40ad7276c87c8d87d72a392
 \
 ,src/main/webapp/components/common_modals.jsp,2\f\2febff6fa03d38f92cf64d5d3012ff18367c418f
+L
+src/main/webapp/checkout.jsp,6\e\6e85f28838dd8d2bcd8ae04f438e624ddec2bd39
