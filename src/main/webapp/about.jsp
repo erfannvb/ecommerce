@@ -10,6 +10,7 @@
 <body>
 
 <jsp:include page="components/navbar.jsp"/>
+<jsp:include page="components/common_modals.jsp"/>
 
 </body>
 </html>
