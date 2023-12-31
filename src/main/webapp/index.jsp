@@ -43,7 +43,7 @@
                 ProductService productService = new ProductServiceImpl(s, productRepository);
 
                 List<Product> productList;
-                if (category.trim().equals("all")) {
+                if (category == null || category.trim().equals("all")) {
                     productList = new ArrayList<>(productService.findAll());
                 } else {
                     long categoryId = Long.parseLong(category.trim());
