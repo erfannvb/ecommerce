@@ -17,7 +17,7 @@ function addToCart(pId, pTitle, pPrice) {
 
         localStorage.setItem("cart", JSON.stringify(productsArray));
 
-        console.log("Product is added for the first time.");
+        showToast("Item added to the cart!");
 
     } else {
 
@@ -38,7 +38,7 @@ function addToCart(pId, pTitle, pPrice) {
 
             localStorage.setItem("cart", JSON.stringify(productCart));
 
-            console.log("Product quantity increased.");
+            showToast(existingProduct.productTitle + " quantity increased.")
 
         } else {
 
@@ -53,7 +53,7 @@ function addToCart(pId, pTitle, pPrice) {
             productCart.push(productObj);
             localStorage.setItem("cart", JSON.stringify(productCart));
 
-            console.log("Product is added.");
+            showToast("Product is added!");
 
         }
 
@@ -119,6 +119,16 @@ function deleteItemFromCart(pId) {
 
     updateCart();
 
+    showToast("Item is removed from the cart!");
+
+}
+
+function showToast(content) {
+    $("#toast").addClass("display");
+    $("#toast").html(content);
+    setTimeout(() => {
+        $("#toast").removeClass("display");
+    }, 2000);
 }
 
 $(document).ready(() => {

@@ -7,9 +7,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="cart-body">
-
-                </div>
+                <div class="cart-body"></div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -18,3 +16,5 @@
         </div>
     </div>
 </div>
+
+<div id="toast">This is a simple toast message!</div>
