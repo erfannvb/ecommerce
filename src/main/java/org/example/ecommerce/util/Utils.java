@@ -17,7 +17,6 @@ public class Utils {
         } else {
             return (desc + "...");
         }
-
     }
 
     public static double getPriceAfterApplyingDiscount(double price, int discount) {
