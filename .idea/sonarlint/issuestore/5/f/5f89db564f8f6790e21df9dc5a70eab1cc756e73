@@ -1,3 +1,11 @@
 
 [
 java:S2387"9"session" is the name of a field in "BaseRepositoryImpl".(¾ò¹èùÿÿÿÿ8æ­íÌ1
+W
+java:S1128";Remove this unused import 'jakarta.persistence.TypedQuery'.(•Çã8ÆÇ¦öÌ1
+k
+java:S1128"IRemove this unused import 'jakarta.persistence.criteria.CriteriaBuilder'.(À¼ºñşÿÿÿÿ8ÆÇ¦öÌ1
+i
+java:S1128"GRemove this unused import 'jakarta.persistence.criteria.CriteriaQuery'.(ÆÑ‡Œùÿÿÿÿ8ÇÇ¦öÌ1
+[
+java:S1128">Remove this unused import 'jakarta.persistence.criteria.Root'.(¯¨¥º8ÇÇ¦öÌ1
