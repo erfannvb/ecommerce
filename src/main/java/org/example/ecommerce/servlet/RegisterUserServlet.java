@@ -1,5 +1,6 @@
 package org.example.ecommerce.servlet;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -34,16 +35,27 @@ public class RegisterUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
 
+            HttpSession httpSession = req.getSession();
+
             String username = req.getParameter("username");
             String email = req.getParameter("email");
             String password = req.getParameter("pwd");
             String phone = req.getParameter("phone");
             String address = req.getParameter("address");
 
+            if (username == null || username.isBlank() || email == null || email.isBlank() ||
+                    password == null || password.isBlank() || phone == null || phone.isBlank() ||
+                    address == null || address.isBlank()) {
+                httpSession.setAttribute("error", "You cannot enter empty value.");
+                RequestDispatcher dispatcher = req.getRequestDispatcher("/register.jsp");
+                dispatcher.include(req, resp);
+                return;
+            }
+
             User user = new User(username, email, password, phone, address, "Normal");
             userService.addUser(user);
 
-            HttpSession httpSession = req.getSession();
+
             httpSession.setAttribute("message", username + " added successfully!");
             resp.sendRedirect("/register.jsp");
 
